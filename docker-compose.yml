@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+ nginx:
+    build: ./nginx
+    ports:
+        - 80:80
+    depends_on:
+        - php
+    volumes:
+        - socket:/var/run/php
+        - ./html:/var/www/html
+    links:
+        - php
+ php:
+    build: ./php
+    ports:
+        - 9000:9000
+    volumes:
+        - socket:/var/run/php
+        - ./html:/var/www/html
+volumes:
+  socket:
+    external: true
