@@ -8,7 +8,7 @@ services:
     depends_on:
         - php
     volumes:
-        - socket:/var/run/php
+        # - socket:/var/run/php
         - ./html:/var/www/html
     links:
         - php
@@ -17,8 +17,8 @@ services:
     ports:
         - 9000:9000
     volumes:
-        - socket:/var/run/php
+        # - socket:/var/run/php
         - ./html:/var/www/html
-volumes:
-  socket:
-    external: true
+# volumes:
+#   socket:
+#     external: true
